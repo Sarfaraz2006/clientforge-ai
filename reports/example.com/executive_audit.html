@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Executive Digital Audit: example.com</title>
+    <style>
+        :root {
+            --bg: #0B0F19;
+            --surface: #111827;
+            --border: #1F2937;
+            --text-main: #F3F4F6;
+            --text-muted: #9CA3AF;
+            --accent: #3B82F6;
+            --emerald: #10B981;
+            --amber: #F59E0B;
+            --rose: #EF4444;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+        body { background-color: var(--bg); color: var(--text-main); line-height: 1.6; padding: 40px 20px; }
+        .container { max-width: 950px; margin: 0 auto; }
+        header { display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 24px; margin-bottom: 36px; }
+        .logo-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(59, 130, 246, 0.1); color: var(--accent); padding: 6px 14px; border-radius: 9999px; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em; }
+        .audit-title { font-size: 32px; font-weight: 800; margin-top: 12px; }
+        .audit-meta { color: var(--text-muted); font-size: 14px; margin-top: 4px; }
+        .score-hero { display: flex; align-items: center; justify-content: center; background: radial-gradient(circle at center, rgba(31, 41, 55, 0.8), rgba(17, 24, 39, 0.9)); border: 1px solid var(--border); border-radius: 16px; padding: 32px; margin-bottom: 36px; text-align: center; }
+        .score-circle { width: 130px; height: 130px; border-radius: 50%; border: 6px solid #EF4444; display: flex; flex-direction: column; align-items: center; justify-content: center; margin-right: 36px; flex-shrink: 0; }
+        .score-num { font-size: 42px; font-weight: 900; line-height: 1; color: #EF4444; }
+        .score-denom { font-size: 13px; color: var(--text-muted); font-weight: 600; }
+        .score-info h2 { font-size: 24px; margin-bottom: 8px; }
+        .score-info p { color: var(--text-muted); max-width: 580px; font-size: 15px; }
+        .grid-4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; margin-bottom: 36px; }
+        .metric-tile { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+        .metric-title { font-size: 13px; color: var(--text-muted); text-transform: uppercase; font-weight: 600; }
+        .metric-val { font-size: 28px; font-weight: 800; margin-top: 6px; }
+        .bar-bg { background: #1F2937; height: 6px; border-radius: 3px; margin-top: 12px; overflow: hidden; }
+        .bar-fill { height: 100%; border-radius: 3px; }
+        .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 24px; margin-bottom: 20px; }
+        .card h3 { font-size: 18px; margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+        .leak-card { border-left: 4px solid var(--rose); }
+        .leak-header { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+        .badge { font-size: 11px; padding: 3px 8px; border-radius: 6px; font-weight: 700; text-transform: uppercase; }
+        .badge-critical { background: rgba(239, 68, 68, 0.2); color: var(--rose); }
+        .badge-high { background: rgba(245, 158, 11, 0.2); color: var(--amber); }
+        .badge-medium { background: rgba(59, 130, 246, 0.2); color: var(--accent); }
+        .win-card { border-left: 4px solid var(--emerald); margin-bottom: 12px; padding: 18px 24px; }
+        .win-meta { font-size: 13px; color: var(--emerald); margin-top: 6px; }
+        .ai-card { background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.08)); border: 1px solid rgba(59, 130, 246, 0.3); }
+        .ai-tag { color: var(--accent); font-weight: 700; font-size: 14px; margin-bottom: 6px; }
+        .tech-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+        .tech-pill { background: #1F2937; color: #D1D5DB; font-size: 12px; padding: 4px 10px; border-radius: 6px; }
+        footer { text-align: center; color: var(--text-muted); font-size: 13px; border-top: 1px solid var(--border); padding-top: 24px; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div>
+                <span class="logo-badge">⚡ ClientForge AI Diagnostics</span>
+                <h1 class="audit-title">Digital Health & Revenue Audit</h1>
+                <div class="audit-meta">Domain: <strong>example.com</strong> | Audited on October 23, 2026</div>
+            </div>
+            <div>
+                <span class="badge" style="background:#1F2937; color:#9CA3AF; padding:8px 16px; font-size:13px;">Verified Audit</span>
+            </div>
+        </header>
+
+        <section class="score-hero">
+            <div class="score-circle">
+                <span class="score-num">28</span>
+                <span class="score-denom">/ 100</span>
+            </div>
+            <div class="score-info">
+                <h2>Health Rating: Grade F</h2>
+                <p>The digital presence for example.com establishes a foundational baseline with a composite score of 28/100 (Grade F). However, significant revenue leakage exists due to unaddressed conversion friction and missed 24/7 autonomous engagement opportunities.</p>
+            </div>
+        </section>
+
+        <section class="grid-4">
+            <div class="metric-tile">
+                <div class="metric-title">Search & SEO</div>
+                <div class="metric-val">15%</div>
+                <div class="bar-bg"><div class="bar-fill" style="width: 15%; background: var(--accent);"></div></div>
+            </div>
+            <div class="metric-tile">
+                <div class="metric-title">Lead Conversion</div>
+                <div class="metric-val">0%</div>
+                <div class="bar-bg"><div class="bar-fill" style="width: 0%; background: var(--emerald);"></div></div>
+            </div>
+            <div class="metric-tile">
+                <div class="metric-title">Mobile & Speed</div>
+                <div class="metric-val">100%</div>
+                <div class="bar-bg"><div class="bar-fill" style="width: 100%; background: var(--amber);"></div></div>
+            </div>
+            <div class="metric-tile">
+                <div class="metric-title">AI Readiness</div>
+                <div class="metric-val">25%</div>
+                <div class="bar-bg"><div class="bar-fill" style="width: 25%; background: #8B5CF6;"></div></div>
+            </div>
+        </section>
+
+        <section>
+            <h2 style="margin-bottom: 16px; font-size: 20px;">🚨 Revenue Leaks Detected</h2>
+            
+            <div class="card leak-card">
+                <div class="leak-header">
+                    <span class="badge badge-critical">Critical Impact</span>
+                    <h4>Absence of 24/7 Instant Lead Capture / Live Chat</h4>
+                </div>
+                <p>Over 68% of modern B2B/B2C visitors leave a website without converting if their initial question is not answered within 5 minutes. High bounce rate during off-hours.</p>
+            </div>
+            
+            <div class="card leak-card">
+                <div class="leak-header">
+                    <span class="badge badge-critical">Critical Impact</span>
+                    <h4>Friction in Customer Contact Architecture</h4>
+                </div>
+                <p>Visitors cannot easily initiate an inquiry or booking directly on the homepage, causing drop-offs to competitors.</p>
+            </div>
+            
+            <div class="card leak-card">
+                <div class="leak-header">
+                    <span class="badge badge-high">High Impact</span>
+                    <h4>Missing or Truncated Meta Search Snippets</h4>
+                </div>
+                <p>Google search result listings appear unoptimized or auto-generated, depressing organic Click-Through Rate (CTR).</p>
+            </div>
+            
+        </section>
+
+        <section style="margin-top: 32px;">
+            <h2 style="margin-bottom: 16px; font-size: 20px;">⚡ 48-Hour High-ROI Quick Wins</h2>
+            
+            <div class="card win-card">
+                <h4>🎯 Deploy an AI-driven 24/7 conversational lead qualification assistant to capture visitor intent immediately.</h4>
+                <div class="win-meta"><strong>Expected ROI:</strong> 25% to 40% immediate uplift in captured inbound leads.</div>
+            </div>
+            
+            <div class="card win-card">
+                <h4>🎯 Rewrite homepage meta title and description with high-converting target keywords and clear value proposition.</h4>
+                <div class="win-meta"><strong>Expected ROI:</strong> 15-30% improvement in organic search click-through rate.</div>
+            </div>
+            
+            <div class="card win-card">
+                <h4>🎯 Add a prominent H1 headline clearly stating what you do, who you serve, and your primary benefit.</h4>
+                <div class="win-meta"><strong>Expected ROI:</strong> Clarifies value proposition within the first 3 seconds of visitor landing.</div>
+            </div>
+            
+        </section>
+
+        <section style="margin-top: 32px;">
+            <div class="card ai-card">
+                <div class="ai-tag">✨ Recommended High-ROI AI Agent Solution</div>
+                <h3 style="margin-bottom: 8px; font-size: 22px;">Autonomous 24/7 AI Lead Qualifier & Appointment Booking Agent</h3>
+                <p style="color: #D1D5DB; margin-bottom: 16px;">An intelligent custom-trained agent integrated into example.com that answers visitor questions, handles objection handling, qualifies customer budget, and books meetings directly into your calendar.</p>
+                <div style="background: rgba(16, 185, 129, 0.15); border: 1px solid var(--emerald); color: var(--emerald); padding: 12px 18px; border-radius: 8px; font-weight: 600; display: inline-block;">
+                    Expected Impact: +30% to +50% in qualified inbound meetings booked without increasing ad spend.
+                </div>
+            </div>
+        </section>
+
+        <section style="margin-top: 32px;">
+            <div class="card">
+                <h3>🛠️ Technical Environment Summary</h3>
+                <div style="font-size: 14px; color: var(--text-muted); line-height: 2;">
+                    <div>• <strong>Response Latency:</strong> 80 ms</div>
+                    <div>• <strong>Mobile Viewport:</strong> Configured</div>
+                    <div>• <strong>Forms Present:</strong> No</div>
+                    <div>• <strong>Live Chat / AI Bot:</strong> Not implemented</div>
+                </div>
+                <div class="tech-tags">
+                    
+                </div>
+            </div>
+        </section>
+
+        <footer>
+            Generated automatically by ClientForge AI Revenue Agent Suite • Confidential Client Briefing
+        </footer>
+    </div>
+</body>
+</html>
